@@ -17,6 +17,6 @@ public class MianAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, String item) {
-        helper.setText(R.id.item_main_tv,item);
+        helper.setText(R.id.item_main_tv,item).addOnClickListener(R.id.item_main_box);
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:id="@+id/item_fold_img"
+        android:background="@null"
+        android:src="@drawable/ic_user_head_img"
+        android:layout_width="26dp"
+        android:layout_height="26dp"/>
+    <TextView
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:id="@+id/item_fold_more"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

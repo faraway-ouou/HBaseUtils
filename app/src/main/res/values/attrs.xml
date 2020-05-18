@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--支付密码-->
+    <declare-styleable name="input_pas_style">
+        <attr name="maxCount" format="integer" />
+        <attr name="circleColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="bottomLineColor" format="color" />
+        <attr name="pwdRadius" format="dimension" />
+        <attr name="divideLineWidth" format="dimension" />
+        <attr name="divideLineColor" format="color" />
+        <attr name="rectAngle" format="dimension" />
+        <attr name="isPwd" format="boolean" />
+        <attr name="autoSize" format="boolean" />
+        <attr name="psdType" format="enum">
+            <enum name="weChat" value="0" />
+            <enum name="bottomLine" value="1" />
+            <enum name="block" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

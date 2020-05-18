@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/navigation_bar_layout"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="32dp"
+        android:id="@+id/demo_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <com.winks.demo.view.widget.ExpandableTextView
+        android:layout_margin="10dp"
+        android:id="@+id/demo_expandable_text_view"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
