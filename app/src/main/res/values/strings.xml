@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">HBaseUtils</string>
     <string name="pack_up">收起</string>
+    <string name="press_exit_again">再按一次退出程序</string>
 </resources>
