@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.shuaichuxinggaodu'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -30,22 +29,23 @@ android {
 }
 
 dependencies {
-
-    api 'com.qmuiteam:qmui:1.4.0'
-    api 'jp.wasabeef:glide-transformations:2.0.1'
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'io.reactivex.rxjava2:rxjava:2.1.5'
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    api 'com.squareup.okhttp3:okhttp:3.9.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.9.0'
     api 'me.jessyan:autosize:1.1.2'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
-    api 'org.greenrobot:eventbus:3.1.1'
     api 'com.trello.rxlifecycle3:rxlifecycle:3.0.0'
     api 'com.trello.rxlifecycle3:rxlifecycle-android:3.0.0'
     api 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
     api 'com.trello.rxlifecycle3:rxlifecycle-components-preference:3.0.0'
     api 'com.trello.rxlifecycle3:rxlifecycle-android-lifecycle:3.0.0'
-    api 'com.jakewharton:butterknife:10.2.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
