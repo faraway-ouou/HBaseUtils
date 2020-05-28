@@ -45,6 +45,7 @@ public abstract class BaseFragment extends RxFragment {
     }
 
     /**
+     *
      * 初始化顶部View
      * @param mView
      */
