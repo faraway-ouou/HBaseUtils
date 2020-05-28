@@ -1,2 +1,2 @@
-include ':app', ':utils', ':base_utils'
+include ':app', ':utils'
 rootProject.name='HBaseUtils'

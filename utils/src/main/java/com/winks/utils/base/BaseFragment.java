@@ -23,7 +23,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseFragment<T> extends RxFragment {
+public abstract class BaseFragment extends RxFragment {
     private View mView;
     private Activity mActivity;
     public Context mContext;
