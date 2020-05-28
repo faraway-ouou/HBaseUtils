@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends RxAppCompatActivity {
     protected Context mContext;
+    private View mStatusBarTopView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,28 +69,16 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     /**
      * 初始化顶部View 适配透明状态栏状态栏高度
      */
-    private void initStatusBarTopView() {
-        View mStatusBarTopView = findViewById(R.id.status_bar_top_bar_view);
+    public void initStatusBarTopView() {
+        mStatusBarTopView = findViewById(R.id.status_bar_top_bar_view);
         if (mStatusBarTopView !=null){
             ViewGroup.LayoutParams lp = mStatusBarTopView.getLayoutParams();
             lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
             lp.height = QMUIStatusBarHelper.getStatusbarHeight(mContext);
             mStatusBarTopView.setLayoutParams(lp);
-            if (getStatusBarBackgroundColor() == -1){
-                return;
-            }
-            mStatusBarTopView.setBackgroundColor(getStatusBarBackgroundColor());
+
         }
     }
-
-    /**
-     * 状态栏背景色
-     * @return
-     */
-    protected int getStatusBarBackgroundColor() {
-        return Color.WHITE;
-    }
-
     protected abstract void initView();
 
     @Override

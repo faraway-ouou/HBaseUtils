@@ -33,6 +33,8 @@ public abstract class BaseFragment extends RxFragment {
     public boolean isVisible;
     public boolean isPrepared;
     public static final String TYPE_NAME = "type_name";
+    private View mStatusBarTopView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,22 +49,15 @@ public abstract class BaseFragment extends RxFragment {
      * @param mView
      */
     private void initStatusBarTopView(View mView) {
-        View mStatusBarTopView = mView.findViewById(R.id.status_bar_top_bar_view);
+        mStatusBarTopView = mView.findViewById(R.id.status_bar_top_bar_view);
         if (mStatusBarTopView !=null){
             ViewGroup.LayoutParams lp = mStatusBarTopView.getLayoutParams();
             lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
             lp.height = QMUIStatusBarHelper.getStatusbarHeight(mContext);
             mStatusBarTopView.setLayoutParams(lp);
-            if (getStatusBarBackgroundColor() == -1){
-                return;
-            }
-            mStatusBarTopView.setBackgroundColor(getStatusBarBackgroundColor());
         }
     }
 
-    protected int getStatusBarBackgroundColor() {
-        return Color.WHITE;
-    }
 
     /**
      * 视图是否已经对用户可见，系统的方法
