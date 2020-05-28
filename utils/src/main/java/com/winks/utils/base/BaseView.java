@@ -13,6 +13,7 @@ public interface BaseView {
     /**
      * 隐藏提示
      */
+
     void hideLoading();
 
     /**
