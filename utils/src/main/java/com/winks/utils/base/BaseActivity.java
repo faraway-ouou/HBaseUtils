@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends RxAppCompatActivity {
     protected Context mContext;
-    private View mStatusBarTopView;
+    public View mStatusBarTopView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

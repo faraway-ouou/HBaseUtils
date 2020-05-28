@@ -4,5 +4,6 @@
     <color name="colorBlue">#47AFFF</color>
     <color name="colorGray">#999999</color>
     <color name="colorPrimaryDark" >#00574B</color>
+    <color name="colorStatusBarTopViewColor" >#00574B</color>
 
 </resources>

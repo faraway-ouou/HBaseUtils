@@ -33,7 +33,7 @@ public abstract class BaseFragment extends RxFragment {
     public boolean isVisible;
     public boolean isPrepared;
     public static final String TYPE_NAME = "type_name";
-    private View mStatusBarTopView;
+    public View mStatusBarTopView;
 
     @Nullable
     @Override
