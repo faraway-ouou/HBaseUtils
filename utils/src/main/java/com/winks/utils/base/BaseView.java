@@ -20,6 +20,7 @@ public interface BaseView {
     /**
      * 请求错误
      * @param o
+     *
      */
     void onError(Object o);
 }
