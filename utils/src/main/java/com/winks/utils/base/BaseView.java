@@ -16,5 +16,11 @@ public interface BaseView {
 
 
     void hideLoading();
+
+    /**
+     * 请求错误
+     * @param o
+     *
+     */
     void onError(Object o);
 }
