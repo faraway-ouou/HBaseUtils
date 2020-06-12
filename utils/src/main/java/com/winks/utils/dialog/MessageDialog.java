@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,6 +28,7 @@ public class MessageDialog extends AppCompatDialog {
     private int mLeftTextColor = R.color.colorGray;
     private int mRightTextColor = R.color.colorBlue;
     private OnClickListener listener;
+    private View mView;
 
     private void init(Builder builder) {
         this.mContext = builder.mContext;
@@ -57,7 +59,8 @@ public class MessageDialog extends AppCompatDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_message);
+        mView = LayoutInflater.from(mContext).inflate(R.layout.dialog_message,null);
+        setContentView(mView);
         changeDialogStyle();
         TextView mContentTextView = findViewById(R.id.dialog_message_desc_tv);
         Button cancelBtn = findViewById(R.id.dialog_message_cancel_btn);

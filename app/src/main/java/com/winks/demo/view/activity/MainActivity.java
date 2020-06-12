@@ -1,10 +1,12 @@
 package com.winks.demo.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import androidx.appcompat.app.AppCompatDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +17,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.winks.demo.R;
 import com.winks.demo.adapter.MianAdapter;
 import com.winks.utils.base.BaseActivity;
+import com.winks.utils.dialog.MessageDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +35,32 @@ public class MainActivity extends BaseActivity {
     RelativeLayout mNavigationBarLayoutBackBox;
     private List<String> mList = new ArrayList<>();
     private long exitTime = 0;
+    private MessageDialog mMessageDialog;
 
+    private void initMsgDialog() {
+        mMessageDialog = new MessageDialog.Builder(mContext)
+                .setLeftText(getResources().getString(R.string.cancel))
+                .setRightText(getResources().getString(R.string.confirm))
+                .setContentText(getResources().getString(R.string.out_login_tag))
+                .setLeftTextColor(R.color.colorBlue)
+                .setRightTextColor(R.color.colorBlue)
+                .addViewOnclick(new MessageDialog.OnClickListener() {
+                    @Override
+                    public void onConfirmClick(View view, AppCompatDialog dialog) {
+
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onCancelClick(View view, AppCompatDialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).build();
+    }
     @Override
     protected void initView() {
+        initMsgDialog();
+        mMessageDialog.show();
         mNavigationBarLayoutBackBox.setVisibility(View.INVISIBLE);
         LinearLayoutManager manager = new LinearLayoutManager(mContext);
         manager.setOrientation(RecyclerView.VERTICAL);

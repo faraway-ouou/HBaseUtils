@@ -2,4 +2,5 @@
     <string name="app_name">utils</string>
     <string name="cancel">取消</string>
     <string name="confirm">确定</string>
+    <string name="i_see">我知道了</string>
 </resources>
