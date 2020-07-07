@@ -2,13 +2,16 @@ package com.winks.utils.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialog;
+
 import com.winks.utils.R;
+
 import butterknife.ButterKnife;
 
 
@@ -36,21 +39,40 @@ public abstract class BaseDialog extends AppCompatDialog {
     }
 
     protected abstract int getLayoutId();
+
     protected abstract void initView();
+
     /**
      * 设置dialog居下占满屏幕
      */
     public void changeDialogStyle() {
         Window window = getWindow();
-        window.setGravity(getGravity());
+        window.setGravity(gravity());
         window.getDecorView().setPadding(0, 0, 0, 0);
         WindowManager.LayoutParams lp = window.getAttributes();
-        lp.width = WindowManager.LayoutParams.FILL_PARENT;
-        lp.height = WindowManager.LayoutParams.FILL_PARENT;
+        lp.width = width();
+        lp.height = height();
         window.setAttributes(lp);
     }
 
-    protected abstract int getGravity();
+    protected int height() {
+        return WindowManager.LayoutParams.FILL_PARENT;
+    }
+
+    ;
+
+    protected int width() {
+        return WindowManager.LayoutParams.FILL_PARENT;
+    }
+
+    ;
+
+    protected int gravity() {
+        return Gravity.CENTER;
+    }
+
+    ;
+
     @Override
     public void setOnDismissListener(@Nullable OnDismissListener listener) {
         super.setOnDismissListener(listener);
