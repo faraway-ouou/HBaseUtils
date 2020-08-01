@@ -32,7 +32,6 @@ public abstract class BaseFragment extends RxFragment {
     protected boolean isInit = false;
     public boolean isVisible;
     public boolean isPrepared;
-    public static final String TYPE_NAME = "type_name";
     public View mStatusBarTopView;
 
     @Nullable
@@ -124,10 +123,8 @@ public abstract class BaseFragment extends RxFragment {
     protected void initView() {
     }
 
-    ;
-
     protected void initData() {
-    };
+    }
 
     /**
      * 是否注册事件分发

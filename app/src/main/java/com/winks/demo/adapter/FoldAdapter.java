@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import com.winks.demo.R;
-import com.winks.utils.base.FoldBaseAdapter;
+import com.winks.demo.view.FoldBaseAdapter;
 
 import java.util.List;
 

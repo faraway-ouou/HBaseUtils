@@ -34,7 +34,7 @@ public abstract class BaseDialog extends AppCompatDialog {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-        changeDialogStyle();
+        onDialogStyle();
         initView();
     }
 
@@ -42,10 +42,7 @@ public abstract class BaseDialog extends AppCompatDialog {
 
     protected abstract void initView();
 
-    /**
-     * 设置dialog居下占满屏幕
-     */
-    public void changeDialogStyle() {
+    public void onDialogStyle() {
         Window window = getWindow();
         window.setGravity(gravity());
         window.getDecorView().setPadding(0, 0, 0, 0);
@@ -58,20 +55,13 @@ public abstract class BaseDialog extends AppCompatDialog {
     protected int height() {
         return WindowManager.LayoutParams.FILL_PARENT;
     }
-
-    ;
-
     protected int width() {
         return WindowManager.LayoutParams.FILL_PARENT;
     }
 
-    ;
-
     protected int gravity() {
         return Gravity.CENTER;
     }
-
-    ;
 
     @Override
     public void setOnDismissListener(@Nullable OnDismissListener listener) {

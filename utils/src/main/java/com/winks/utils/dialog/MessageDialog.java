@@ -101,14 +101,13 @@ public class MessageDialog extends AppCompatDialog {
 
     public static final class Builder {
         private Context mContext;
-        private int mGravity;
-        private String mContentText;
         private OnClickListener listener;
-        private String mLeftText;
-        private String mRightText;
-        private int mLeftTextColor;
-        private int mRightTextColor;
-
+        private int mGravity = Gravity.CENTER;
+        private String mContentText;
+        private String mLeftText = "";
+        private String mRightText = "";
+        private int mLeftTextColor = R.color.colorGray;
+        private int mRightTextColor = R.color.colorBlue;
         public Builder setLeftTextColor(int mLeftTextColor) {
             this.mLeftTextColor = mLeftTextColor;
             return this;

@@ -1,15 +1,20 @@
 package com.winks.utils.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle3.components.support.RxFragmentActivity;
 import com.winks.utils.R;
 import com.winks.utils.event.Event;
 
@@ -17,12 +22,49 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.List;
+
 import butterknife.ButterKnife;
 
-public abstract class BaseActivity extends RxAppCompatActivity {
+public abstract class BaseActivity extends RxFragmentActivity {
     protected Context mContext;
     public View mStatusBarTopView;
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        FragmentManager fm = getSupportFragmentManager();
+        int index = requestCode >> 16;
+        if (index != 0) {
+            index--;
+            if (fm.getFragments() == null || index < 0
+                    || index >= fm.getFragments().size()) {
+                Log.w("tag", "Activity result fragment index out of range: 0x"
+                        + Integer.toHexString(requestCode));
+                return;
+            }
+            Fragment frag = fm.getFragments().get(index);
+            if (frag == null) {
+                Log.w("tag","Activity result no fragment exists for index: 0x"
+                        + Integer.toHexString(requestCode));
+            } else {
+                handleResult(frag, requestCode, resultCode, data);
+            }
+            return;
+        }
+    }
+
+    private void handleResult(Fragment frag, int requestCode, int resultCode,
+                              Intent data) {
+        frag.onActivityResult(requestCode & 0xffff, resultCode, data);
+        List<Fragment> frags = frag.getChildFragmentManager().getFragments();
+        if (frags != null) {
+            for (Fragment f : frags) {
+                if (f != null)
+                    handleResult(f, requestCode, resultCode, data);
+            }
+        }
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +97,7 @@ public abstract class BaseActivity extends RxAppCompatActivity {
      * @return
      */
     protected  boolean isStatusBarLightMode(){
-        return false;
+        return true;
     };
 
     /**

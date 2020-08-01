@@ -18,13 +18,13 @@ public class PasInputActivity extends BaseActivity {
 
     public static void startActivity(Activity activity, String data) {
         Intent intent = new Intent(activity, PasInputActivity.class);
-        intent.putExtra(DemoActivity.PAGE_DATA, data);
+        intent.putExtra(ExpandableActivity.PAGE_DATA, data);
         activity.startActivity(intent);
     }
 
     @Override
     protected void initView() {
-        mNavigationBarLayoutTitle.setText(getIntent().getStringExtra(DemoActivity.PAGE_DATA));
+        mNavigationBarLayoutTitle.setText(getIntent().getStringExtra(ExpandableActivity.PAGE_DATA));
     }
 
     @Override

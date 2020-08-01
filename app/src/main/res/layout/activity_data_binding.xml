@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><!--dataBinding Layout Examples-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.winks.demo.mvvm.NewsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.winks.demo.view.widget.TopNavigationBar
+            android:id="@+id/data_binding_top_navigation_bar"
+            app:titleGravity="center_left"
+            app:leftImageSrc="@mipmap/ic_nav_bar_black_back"
+            app:topViewColor="@android:color/white"
+            app:titleSize="6sp"
+            app:title="@string/data_binding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/data_binding_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</layout>

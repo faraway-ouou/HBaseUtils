@@ -3,4 +3,9 @@
     <string name="pack_up">收起</string>
     <string name="press_exit_again">再按一次退出程序</string>
     <string name="out_login_tag">是否退出登录？</string>
+    <string name="feed_api_url">https://www.toutiao.com/api/pc/feed/</string>
+    <string name="folding_case">折叠案例</string>
+    <string name="input_pas">密码输入框</string>
+    <string name="app_names" >HBaseUtils</string>
+    <string name="data_binding">DataBindingSample</string>
 </resources>

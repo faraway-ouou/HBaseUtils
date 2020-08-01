@@ -13,14 +13,5 @@ public interface BaseView {
     /**
      * 隐藏提示
      */
-
-
     void hideLoading();
-
-    /**
-     * 请求错误
-     * @param o
-     *
-     */
-    void onError(Object o);
 }

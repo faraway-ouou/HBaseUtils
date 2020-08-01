@@ -10,17 +10,10 @@ import androidx.appcompat.app.AppCompatDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.LogUtils;
-import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.winks.demo.R;
-import com.winks.demo.adapter.MianAdapter;
 import com.winks.utils.base.BaseActivity;
 import com.winks.utils.dialog.MessageDialog;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,11 +22,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.main_recycler_view)
-    RecyclerView mRecyclerView;
     @BindView(R.id.navigation_bar_layout_back_box)
     RelativeLayout mNavigationBarLayoutBackBox;
-    private List<String> mList = new ArrayList<>();
     private long exitTime = 0;
     private MessageDialog mMessageDialog;
 
@@ -57,30 +47,14 @@ public class MainActivity extends BaseActivity {
                     }
                 }).build();
     }
+
     @Override
     protected void initView() {
         initMsgDialog();
-        mMessageDialog.show();
         mNavigationBarLayoutBackBox.setVisibility(View.INVISIBLE);
         LinearLayoutManager manager = new LinearLayoutManager(mContext);
         manager.setOrientation(RecyclerView.VERTICAL);
-        mRecyclerView.setLayoutManager(manager);
-        mList.add("案例");
-        mList.add("仿支付密码输入框");
-        MianAdapter adapter = new MianAdapter(R.layout.item_main, mList);
-        adapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_RIGHT);
-        adapter.setOnItemChildClickListener((adapter1, view, position) -> {
-            switch (position) {
-                case 1:
-                    PasInputActivity.startActivity(MainActivity.this, mList.get(position));
-                    break;
-                default:
-                    DemoActivity.startActivity(MainActivity.this, mList.get(position));
-                    break;
 
-            }
-        });
-        mRecyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -118,8 +92,18 @@ public class MainActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    @OnClick(R.id.main_btn)
-    public void onViewClicked() {
-        LogUtils.e("点击："+TimeUtils.millis2String(System.currentTimeMillis()));
+    @OnClick({R.id.mine_folding_btn, R.id.mine_input_pas_btn,R.id.mine_data_binding_btn})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.mine_folding_btn:
+                ExpandableActivity.startActivity(this, getResources().getString(R.string.folding_case));
+                break;
+            case R.id.mine_input_pas_btn:
+                PasInputActivity.startActivity(this, getResources().getString(R.string.input_pas));
+                break;
+            case R.id.mine_data_binding_btn:
+                startActivity(new Intent(this,DataBindingActivity.class));
+                break;
+        }
     }
 }

@@ -18,4 +18,32 @@
             <enum name="block" value="2" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="top_navigation_bar">
+        <attr name="topViewVisible" format="boolean" />
+        <attr name="topViewHeight" format="integer" />
+        <attr name="topViewColor" format="color" />
+        <attr name="leftBoxPaddingLeft" format="integer" />
+        <attr name="leftBoxPaddingRight" format="integer" />
+        <attr name="leftBoxPaddingTop" format="integer" />
+        <attr name="leftBoxPaddingBottom" format="integer" />
+        <attr name="rightBoxPaddingLeft" format="integer" />
+        <attr name="rightBoxPaddingRight" format="integer" />
+        <attr name="rightBoxPaddingTop" format="integer" />
+        <attr name="rightBoxPaddingBottom" format="integer" />
+        <attr name="leftImageSrc" format="reference" />
+        <attr name="leftImageHeight" format="dimension" />
+        <attr name="leftImageWidth" format="dimension" />
+        <attr name="titleSize" format="dimension" />
+        <attr name="titleColor" format="color" />
+        <attr name="title" format="string" />
+        <attr name="titleGravity" format="reference">
+            <enum name="center" value="0"/>
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
+            <enum name="center_vertical" value="3"/>
+            <enum name="center_horizontal" value="4"/>
+            <enum name="center_left" value="5"/>
+            <enum name="center_right" value="6"/>
+        </attr>
+    </declare-styleable>
 </resources>
